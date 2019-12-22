@@ -1,60 +1,58 @@
 # jsdocify
 
 If you have comments that look like this:
+
 ```javascript
-
-
 function superFunction()
-// do a super fantastic thing
-// but dont do it if I say not to
-// because this function is hard
+// this is a super fantastic comment!
+// it is ripe with information on this
+// function's many assumptions, and also
+// devoid of superfluous information.
 {
-  return !0;
+  return bestFunction() && {} || !0;
 
-  function whatIsHoisting()
-  // this function
-  // returns
-  // a string
-  // explaining what
-  // hoisting is
-  // to people 
-  // who write
-  // comments
-  // like
-  // this
+  function bestFunction()
+  // this comment is also useful.
+  // however many linters hate this comment.
+  // all comments are born equal and are
+  // entitled to certain inalienable rights.
+  // however linters do not support comment
+  // equality. and for this reason we must
+  // run jsdocify to save this comment 
+  // and de-anger our linter.
   {
-    return "Hoisting is something that the person who writes comments like the ones preceeding this function body should have done above the function."
+    return ""
   }
 }
 ```
+
+Then you run `python3 jsdocify --inplace FILE` and it becomes:
 
 ```javascript
 /**
-* do a super fantastic thing
-* but dont do it if I say not to
-* because this function is hard
-*/
+ * this is a super fantastic comment!
+ * it is ripe with information on this
+ * function's many assumptions, and also
+ * devoid of superfluous information.
+ */
 function superFunction() {
-  return !0;
+  return bestFunction() && {} || !0;
 
- /**
-  * this function
-  * returns
-  * a string
-  * explaining what
-  * hoisting is
-  * to people 
-  * who write
-  * comments
-  * like
-  * this
-  */
-  function whatIsHoisting() {
-    return "Hoisting is something that the person who writes comments like the ones preceeding this function body should have done above the function."
+  /**
+   * this comment is also useful.
+   * however many linters hate this comment.
+   * all comments are born equal and are
+   * entitled to certain inalienable rights.
+   * however linters do not support comment
+   * equality. and for this reason we must
+   * run jsdocify to save this comment
+   * and de-anger our linter.
+   */
+  function bestFunction() {
+    return ""
   }
 }
 ```
 
 
-
-  
+How beautiful!
